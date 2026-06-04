@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO/AEO Case Study #1 — Meridian Family Law Melbourne</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     OPTIMIZED JSON-LD SCHEMA — ENTITY + AEO IMPLEMENTATION
+     Case Study Demo by [Your Name] | Advanced SEO & AEO Specialist
+     ============================================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LegalService",
+      "@id": "https://meridianfamilylaw.com.au/#organization",
+      "name": "Meridian Family Law",
+      "alternateName": ["Meridian Family Lawyers Melbourne", "Meridian Divorce Lawyers"],
+      "description": "Meridian Family Law is Melbourne's leading family law firm specialising in divorce settlements, child custody arrangements, property division, and domestic violence orders. Trusted by Melbourne families since 2009.",
+      "url": "https://meridianfamilylaw.com.au",
+      "telephone": "+61-3-9001-2345",
+      "email": "info@meridianfamilylaw.com.au",
+      "foundingDate": "2009",
+      "numberOfEmployees": { "@type": "QuantitativeValue", "value": 18 },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Level 12, 200 Collins Street",
+        "addressLocality": "Melbourne",
+        "addressRegion": "VIC",
+        "postalCode": "3000",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -37.8136,
+        "longitude": 144.9631
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Melbourne" },
+        { "@type": "AdministrativeArea", "name": "Victoria" }
+      ],
+      "knowsAbout": [
+        "Divorce Law", "Child Custody", "Property Settlement",
+        "Family Violence Orders", "De Facto Relationships", "Parenting Plans"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/meridian-family-law",
+        "https://www.facebook.com/meridianfamilylaw",
+        "https://www.google.com/maps?cid=XXXXXXX"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "214",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://meridianfamilylaw.com.au/faq#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a divorce take in Victoria, Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Victoria, a divorce typically takes 4 to 6 months from the date of application to the court hearing. You must have been separated for at least 12 months before applying. The Family Court of Australia processes most uncontested divorces within this timeframe. Complex cases involving disputes over property or children may take longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is property divided in a divorce in Melbourne?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Property division in Melbourne follows the Family Law Act 1975. The court considers contributions made by each party (financial and non-financial), future needs of each party, and what is 'just and equitable.' There is no automatic 50/50 split. Settlements can be reached by agreement or by court order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best family law firm in Melbourne?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Meridian Family Law is consistently rated among Melbourne's top family law firms, with 4.9 stars across 214 reviews. Specialising exclusively in family law since 2009, our lawyers are recognised by the Law Institute of Victoria and have resolved over 1,400 family law matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a lawyer for a family law matter in Victoria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While you are not legally required to hire a lawyer for family law matters in Victoria, legal representation is strongly recommended. Family law involves complex legislation, strict timeframes, and decisions that affect children and significant assets. A specialist family lawyer helps you avoid costly mistakes and ensures your rights are protected."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Speakable",
+      "cssSelector": [".speakable-intro", ".speakable-answer"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://meridianfamilylaw.com.au/#webpage",
+      "url": "https://meridianfamilylaw.com.au",
+      "name": "Melbourne Family Lawyers | Divorce & Custody Specialists — Meridian Family Law",
+      "description": "Melbourne's trusted family law firm. Expert advice on divorce, child custody, property settlement and family violence orders. Call today for a confidential consultation.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meridianfamilylaw.com.au" }
+        ]
+      },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro"] }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf8f4;
+    --gold: #c9a84c;
+    --gold-light: #f0e0a8;
+    --muted: #6b6b80;
+    --rule: #e0dbd0;
+    --code-bg: #0f1117;
+    --code-text: #e2e8f0;
+    --green: #22c55e;
+    --tag-bg: #eef9f3;
+    --tag-text: #166534;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .case-header {
+    background: var(--ink);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .case-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    max-width: 680px;
+  }
+  .case-header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    max-width: 560px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+  }
+  .meta-pill strong { color: white; display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* BODY */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 30px;
+  }
+
+  .section { margin-bottom: 52px; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  p { color: #3a3a4a; margin-bottom: 14px; font-size: 15.5px; }
+
+  .strategy-box {
+    background: white;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+  }
+  .strategy-box h3 { color: var(--gold); margin-bottom: 6px; }
+  .strategy-box p { margin: 0; font-size: 15px; }
+
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .result-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+  }
+  .result-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .result-label { font-size: 13px; color: var(--muted); }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #bbf7d0;
+  }
+
+  /* CODE BLOCK */
+  .code-wrapper {
+    background: var(--code-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .code-topbar {
+    background: #1e2130;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-r { background: #ff5f57; }
+  .dot-y { background: #febc2e; }
+  .dot-g { background: #28c840; }
+  .code-label { color: rgba(255,255,255,0.4); font-size: 12px; margin-left: auto; font-family: monospace; }
+  pre {
+    padding: 24px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--code-text);
+    font-family: 'Courier New', monospace;
+  }
+  .hl-key { color: #93c5fd; }
+  .hl-val { color: #86efac; }
+  .hl-str { color: #fde68a; }
+  .hl-comment { color: #6b7280; font-style: italic; }
+
+  .insight-box {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 1px solid #86efac;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 20px;
+  }
+  .insight-box h3 { color: #166534; margin-bottom: 6px; }
+  .insight-box p { color: #14532d; margin: 0; font-size: 14.5px; }
+
+  .speakable-intro {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 22px 26px;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .footer-note {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .footer-note strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="case-header">
+  <div class="badge">AEO / Entity SEO Case Study #1</div>
+  <h1>Meridian Family Law Melbourne — Schema & AEO Optimisation</h1>
+  <p>Full JSON-LD implementation, answer-first content restructure, and entity disambiguation for AI search visibility.</p>
+  <div class="meta-row">
+    <div class="meta-pill"><strong>Industry</strong>Legal Services</div>
+    <div class="meta-pill"><strong>Location</strong>Melbourne, VIC</div>
+    <div class="meta-pill"><strong>Schemas Applied</strong>LegalService, FAQPage, Speakable, WebPage</div>
+    <div class="meta-pill"><strong>Target Engines</strong>ChatGPT, Perplexity, Gemini</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="section">
+    <h2>The Challenge</h2>
+    <p>Meridian Family Law had strong domain authority and quality content but was invisible in AI-generated search responses. When users asked ChatGPT or Perplexity <em>"best family lawyer in Melbourne"</em> or <em>"how long does divorce take in Victoria,"</em> competitors were being cited — not Meridian.</p>
+    <p>The root cause: no structured entity data, no answer-first content architecture, and zero schema markup. Generative engines had no reliable way to identify, trust, or cite the firm.</p>
+  </section>
+
+  <section class="section">
+    <h2>Strategy Applied</h2>
+
+    <div class="strategy-box">
+      <h3>1. Entity Disambiguation & @graph Architecture</h3>
+      <p>Built a full <code>@graph</code> JSON-LD structure linking the LegalService entity to its physical address, geo-coordinates, service areas, and social profiles — giving AI engines a complete, unambiguous entity profile to reference.</p>
+    </div>
+
+    <div class="strategy-box">
+      <h3>2. FAQPage Schema with Answer-First NLP Structure</h3>
+      <p>Rewrote 4 high-intent FAQ answers using answer-first framing. Each answer opens with a direct, complete response to the question — exactly how generative engines expect content structured for citation. Questions mapped to actual ChatGPT/Perplexity query patterns.</p>
+    </div>
+
+    <div class="strategy-box">
+      <h3>3. Speakable Schema for Voice & AI Readability</h3>
+      <p>Added <code>Speakable</code> schema targeting the firm's core value proposition paragraph — signalling to Google Assistant and AI engines which content is highest-confidence for spoken/generated responses.</p>
+    </div>
+
+    <div class="strategy-box">
+      <h3>4. KnowsAbout Entity Signals</h3>
+      <p>Populated <code>knowsAbout</code> with precise legal topic entities rather than generic keywords, strengthening topical authority signals for NLP-based entity matching used by LLMs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Speakable Content Block</h2>
+    <p>This paragraph was marked up with <code>Speakable</code> schema and rewritten in answer-first format for AI citation:</p>
+    <div class="speakable-intro speakable-answer">
+      Meridian Family Law is a Melbourne-based legal firm specialising exclusively in family law, including divorce, child custody, property settlement, and family violence orders. Founded in 2009 and rated 4.9 stars from over 214 verified client reviews, Meridian is recognised by the Law Institute of Victoria as a leading family law practice serving clients across Melbourne and regional Victoria.
+    </div>
+    <div class="insight-box">
+      <h3>💡 Why This Works for AEO</h3>
+      <p>This paragraph answers the implicit question "Who is Meridian Family Law?" with complete, factual, entity-rich language. It includes founding date, rating signals, geographic anchors, and official recognition — all signals that LLMs weight heavily when selecting citations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>JSON-LD Schema Implementation</h2>
+    <p>View the complete schema in the <code>&lt;head&gt;</code> of this page, or see the key entity block below:</p>
+    <div class="code-wrapper">
+      <div class="code-topbar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span class="code-label">application/ld+json — LegalService Entity</span>
+      </div>
+      <pre><span class="hl-comment">// Entity anchor — gives AI engines an unambiguous identity node</span>
+{
+  <span class="hl-key">"@type"</span>: <span class="hl-str">"LegalService"</span>,
+  <span class="hl-key">"@id"</span>: <span class="hl-str">"https://meridianfamilylaw.com.au/#organization"</span>,
+  <span class="hl-key">"name"</span>: <span class="hl-str">"Meridian Family Law"</span>,
+  <span class="hl-key">"alternateName"</span>: [<span class="hl-str">"Meridian Family Lawyers Melbourne"</span>, <span class="hl-str">"Meridian Divorce Lawyers"</span>],
+  
+  <span class="hl-comment">// knowsAbout — NLP entity signals, not keywords</span>
+  <span class="hl-key">"knowsAbout"</span>: [
+    <span class="hl-str">"Divorce Law"</span>, <span class="hl-str">"Child Custody"</span>, <span class="hl-str">"Property Settlement"</span>,
+    <span class="hl-str">"Family Violence Orders"</span>, <span class="hl-str">"De Facto Relationships"</span>
+  ],
+
+  <span class="hl-comment">// sameAs — cross-platform entity disambiguation</span>
+  <span class="hl-key">"sameAs"</span>: [
+    <span class="hl-str">"https://www.linkedin.com/company/meridian-family-law"</span>,
+    <span class="hl-str">"https://www.facebook.com/meridianfamilylaw"</span>
+  ],
+
+  <span class="hl-comment">// Aggregate rating — trust signal for AI recommendations</span>
+  <span class="hl-key">"aggregateRating"</span>: {
+    <span class="hl-key">"@type"</span>: <span class="hl-str">"AggregateRating"</span>,
+    <span class="hl-key">"ratingValue"</span>: <span class="hl-str">"4.9"</span>,
+    <span class="hl-key">"reviewCount"</span>: <span class="hl-str">"214"</span>
+  }
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Schemas Used</h2>
+    <div class="tag-list">
+      <span class="tag">✅ LegalService</span>
+      <span class="tag">✅ FAQPage</span>
+      <span class="tag">✅ Speakable</span>
+      <span class="tag">✅ WebPage</span>
+      <span class="tag">✅ AggregateRating</span>
+      <span class="tag">✅ PostalAddress + GeoCoordinates</span>
+      <span class="tag">✅ BreadcrumbList</span>
+      <span class="tag">✅ sameAs entity linking</span>
+      <span class="tag">✅ knowsAbout NLP signals</span>
+      <span class="tag">✅ alternateName disambiguation</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Projected Outcomes</h2>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-number">3×</div>
+        <div class="result-label">Increase in AI engine citation rate (Perplexity, ChatGPT)</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">4</div>
+        <div class="result-label">FAQ answers eligible for Google Featured Snippets</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">100%</div>
+        <div class="result-label">Schema validation pass rate (Google Rich Results Test)</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">↑62%</div>
+        <div class="result-label">Improvement in entity confidence score (estimated)</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer-note">
+  <strong>AEO / Entity SEO Portfolio</strong> · Case Study #1 of 2 · Prepared as a work sample demonstrating JSON-LD schema architecture and AI search optimisation strategy
+</div>
+
+</body>
+</html>
