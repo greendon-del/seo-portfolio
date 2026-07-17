@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — GEO/AEO for a Trucking Company Formation Site</title>
+<meta name="description" content="A GEO/AEO case study: rebuilding a thin trucking-company / LLC page into an answer-engine-ready resource with four schema types, answer-first structure, and full entity coverage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16232E; --ink-soft:#33454F; --steel:#6A7B87;
+    --paper:#F5F7F9; --card:#FFFFFF; --line:#DBE3E8; --line-strong:#C3CFD6;
+    --amber:#E4780B; --amber-deep:#B85E06; --amber-soft:#FBEBD6;
+    --green:#2E7D5B; --green-soft:#E3F1EA; --red:#B0413A; --red-soft:#F6E4E2;
+    --shadow:0 1px 2px rgba(22,35,46,.06), 0 14px 34px rgba(22,35,46,.07);
+    --display:'Barlow Condensed','Arial Narrow',sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+  a{color:var(--amber-deep);text-decoration:none}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:3px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+  .demo-bar{background:repeating-linear-gradient(45deg,#16232E,#16232E 14px,#1d2e3b 14px,#1d2e3b 28px);color:#fff;text-align:center;padding:7px 16px;font-family:var(--display);font-weight:600;letter-spacing:.14em;font-size:.72rem;text-transform:uppercase}
+  .demo-bar span{color:var(--amber)}
+
+  /* header */
+  header.site{background:var(--card);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:.02em;color:var(--ink)}
+  .brand .mark{width:30px;height:30px;border-radius:6px;background:var(--ink);display:grid;place-items:center;color:var(--amber);font-size:.95rem;flex:none}
+  .brand small{display:block;font-family:var(--body);font-weight:500;font-size:.58rem;letter-spacing:.18em;color:var(--steel);text-transform:uppercase;margin-top:-3px}
+  .nav .back{font-family:var(--display);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.8rem;color:var(--ink-soft)}
+
+  /* hero */
+  .hero{padding:44px 0 30px}
+  .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-deep);font-size:.82rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber)}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5.5vw,3.3rem);line-height:1.03;letter-spacing:.005em;margin-bottom:16px;max-width:16ch}
+  .hero .dek{font-size:1.14rem;color:var(--ink-soft);max-width:62ch}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tags span{font-family:var(--display);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.74rem;color:var(--ink-soft);background:var(--card);border:1px solid var(--line);padding:5px 12px;border-radius:20px}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:8px 0 6px;box-shadow:var(--shadow)}
+  .stats .s{background:var(--card);padding:20px 18px;text-align:center}
+  .stats .s b{display:block;font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;color:var(--ink)}
+  .stats .s b .arw{color:var(--amber)}
+  .stats .s span{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--steel);font-weight:600}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  section{margin:46px 0}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.2rem);line-height:1.08;margin:0 0 8px;letter-spacing:.008em}
+  .sub{color:var(--steel);font-size:1.02rem;margin-bottom:20px;max-width:64ch}
+  p{margin:12px 0}
+
+  /* before/after compare */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ba .panel{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+  .ba .phead{padding:14px 18px;font-family:var(--display);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.92rem;display:flex;align-items:center;gap:9px}
+  .ba .before .phead{background:var(--red-soft);color:var(--red)}
+  .ba .after .phead{background:var(--green-soft);color:var(--green)}
+  .ba .phead .dot{width:9px;height:9px;border-radius:50%}
+  .ba .before .dot{background:var(--red)}.ba .after .dot{background:var(--green)}
+  .ba ul{list-style:none;padding:10px 18px 16px}
+  .ba li{position:relative;padding:9px 0 9px 24px;font-size:.93rem;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .ba li:last-child{border-bottom:none}
+  .ba li::before{position:absolute;left:0;top:9px;font-family:var(--display);font-weight:700;font-size:.95rem}
+  .ba .before li::before{content:"\00d7";color:var(--red)}
+  .ba .after li::before{content:"\2713";color:var(--green)}
+  .ba li b{color:var(--ink)}
+  .ba .foot{padding:12px 18px 16px}
+  .ba .foot a{display:inline-block;font-family:var(--display);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.78rem;padding:9px 16px;border-radius:7px}
+  .ba .before .foot a{color:var(--ink-soft);border:1px solid var(--line-strong)}
+  .ba .after .foot a{background:var(--amber);color:#fff}
+  @media(max-width:620px){.ba{grid-template-columns:1fr}}
+
+  /* technique cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .tc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:20px;border-top:3px solid var(--amber)}
+  .tc h3{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:.01em;margin-bottom:5px}
+  .tc p{font-size:.93rem;margin:0;color:var(--ink-soft)}
+  @media(max-width:620px){.grid{grid-template-columns:1fr}}
+
+  /* schema list + code */
+  .schema-types{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+  .schema-types span{font-family:var(--display);font-weight:600;letter-spacing:.04em;font-size:.86rem;background:var(--ink);color:#fff;padding:6px 13px;border-radius:6px}
+  .schema-types span em{color:var(--amber);font-style:normal;margin-right:6px}
+  pre{background:#12202B;color:#D8E2E8;border-radius:11px;padding:20px;overflow-x:auto;font-size:.82rem;line-height:1.55;font-family:ui-monospace,'SF Mono',Menlo,monospace;border:1px solid #24404f}
+  pre .k{color:#F0A85C}.pre .s{color:#9AD4A8}
+  .code-cap{font-family:var(--display);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem;color:var(--steel);margin:0 0 8px}
+
+  /* screenshot slots */
+  .shot{background:var(--card);border:2px dashed var(--line-strong);border-radius:12px;padding:34px 20px;text-align:center;margin:14px 0}
+  .shot .ic{width:44px;height:44px;border-radius:9px;background:var(--amber-soft);color:var(--amber-deep);display:grid;place-items:center;margin:0 auto 12px;font-family:var(--display);font-weight:700;font-size:1.3rem}
+  .shot b{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.02em;display:block}
+  .shot p{font-size:.88rem;color:var(--steel);margin:5px auto 0;max-width:46ch}
+  .shot code{background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:1px 7px;font-size:.82rem;color:var(--ink)}
+
+  .note{background:var(--amber-soft);border-radius:11px;padding:16px 20px;margin:18px 0;font-size:.95rem;color:var(--ink-soft)}
+  .note b{color:var(--amber-deep);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;display:block;margin-bottom:3px}
+
+  /* apply-to-you CTA */
+  .cta{background:var(--ink);color:#EAF0F3;border-radius:14px;padding:34px 30px;margin:44px 0;box-shadow:var(--shadow)}
+  .cta h2{color:#fff;margin-bottom:10px}
+  .cta p{color:#B8C6CF;max-width:60ch}
+  .cta .row{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
+  .cta .item{flex:1;min-width:180px}
+  .cta .item .n{font-family:var(--display);color:var(--amber);font-weight:700;font-size:1.4rem}
+  .cta .item b{display:block;font-family:var(--display);font-size:1.15rem;letter-spacing:.02em;margin:2px 0 3px}
+  .cta .item span{font-size:.9rem;color:#9DB0BA}
+
+  footer{background:var(--ink);color:#96A6B0;padding:32px 0;border-top:1px solid #24404f}
+  footer .fdemo{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:var(--amber);margin-bottom:8px}
+  footer p{font-size:.85rem;margin:6px 0}
+
+  @media(prefers-reduced-motion:no-preference){
+    .hero>*{animation:rise .5s ease both}
+    .hero h1{animation-delay:.05s}.hero .dek{animation-delay:.1s}.hero .tags{animation-delay:.16s}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#brief">Skip to content</a>
+
+<div class="demo-bar">Portfolio case study &nbsp;·&nbsp; <span>GEO / AEO</span> demonstration &nbsp;·&nbsp; sample build, not a live client</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><span class="mark">◆</span><span>GEO / AEO Portfolio<small>Technical SEO &amp; Answer-Engine Optimization</small></span></div>
+      <a class="back" href="#">← All case studies</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Case Study 04 · Trucking &amp; Logistics</div>
+    <h1>Making a trucking-company page the answer AI engines cite</h1>
+    <p class="dek">A demonstration of how I rebuild a thin, invisible page into an answer-engine-ready resource — using a US trucking-company / LLC-registration topic in the B2B space. Same subject, two builds, one clear contrast.</p>
+    <div class="tags">
+      <span>Structured Data</span><span>Answer-First Content</span><span>Entity Coverage</span><span>E-E-A-T</span><span>GEO / AEO</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="s"><b>0 <span class="arw">→</span> 4</b><span>Schema types</span></div>
+    <div class="s"><b>1 <span class="arw">→</span> 8</b><span>Structured sections</span></div>
+    <div class="s"><b>0 <span class="arw">→</span> 6</b><span>Schema-backed FAQs</span></div>
+    <div class="s"><b>Low <span class="arw">→</span> High</b><span>Extractability</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="brief">
+    <h2>The brief</h2>
+    <p class="sub">Show, on a real B2B subject, the difference between a page that AI search ignores and one it can lift a direct answer from.</p>
+    <p>Generative engines — ChatGPT, Perplexity, Gemini, Claude — don't reward keyword stuffing. They reward pages they can <em>parse</em>: a clear answer up top, structured data that labels every part, question-shaped headings that match how people actually ask, and named entities they can anchor to. I took a trucking-company formation topic and built it twice: once the way most sites do it, and once the way an answer engine wants to read it.</p>
+  </section>
+
+  <section>
+    <h2>Before vs. after</h2>
+    <p class="sub">Two live pages on the same topic. Run both through validator.schema.org and the difference isn't subjective — it's four structured-data types versus none.</p>
+    <div class="ba">
+      <div class="panel before">
+        <div class="phead"><span class="dot"></span>Before · unoptimized</div>
+        <ul>
+          <li><b>Title:</b> "Trucking Business Info" — vague, no keywords</li>
+          <li><b>Meta description:</b> missing</li>
+          <li><b>Structured data:</b> none</li>
+          <li><b>Structure:</b> one heading, five walls of text</li>
+          <li><b>Answer block:</b> none — nothing extractable</li>
+          <li><b>Entities:</b> "numbers and permits and things"</li>
+          <li><b>E-E-A-T:</b> no author, no dates, no review</li>
+        </ul>
+        <div class="foot"><a href="trucking-llc-guide-before.html">View before →</a></div>
+      </div>
+      <div class="panel after">
+        <div class="phead"><span class="dot"></span>After · GEO/AEO build</div>
+        <ul>
+          <li><b>Title:</b> "How to Start a Trucking Company &amp; LLC (2026)"</li>
+          <li><b>Meta description:</b> answers the query in one line</li>
+          <li><b>Structured data:</b> Article, HowTo, FAQPage, Breadcrumb</li>
+          <li><b>Structure:</b> semantic H1–H3, 8 titled sections</li>
+          <li><b>Answer block:</b> direct answer up top for extraction</li>
+          <li><b>Entities:</b> FMCSA, USDOT, MC, BOC-3, IFTA, IRP, HVUT</li>
+          <li><b>E-E-A-T:</b> author bio, published + updated dates</li>
+        </ul>
+        <div class="foot"><a href="trucking-llc-guide-after.html">View optimized build →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I implemented</h2>
+    <p class="sub">Every choice on the optimized page serves one goal: make the content trivially easy for an AI engine to read, trust, and quote.</p>
+    <div class="grid">
+      <div class="tc"><h3>Answer-first block</h3><p>A concise, direct answer to the primary question sits at the very top — the exact format generative engines lift into their responses.</p></div>
+      <div class="tc"><h3>Four schema types</h3><p>Article, HowTo, FAQPage and BreadcrumbList in JSON-LD, so machines get a labeled map of the author, the steps, the Q&amp;As, and the page's place in the site.</p></div>
+      <div class="tc"><h3>Question-shaped headings</h3><p>Sections titled the way buyers search — "USDOT vs MC number," "how long does MC authority take" — so the page matches real queries.</p></div>
+      <div class="tc"><h3>Entity coverage</h3><p>The named entities that define the topic — FMCSA, USDOT, EIN, BOC-3, IFTA, IRP, HVUT — giving engines concrete things to anchor to.</p></div>
+      <div class="tc"><h3>Extractable data tables</h3><p>Costs and timelines in structured tables and an at-a-glance panel, so figures can be pulled cleanly rather than hunted for in prose.</p></div>
+      <div class="tc"><h3>E-E-A-T signals</h3><p>A named author with a role, plus published and updated dates and a review note — the trust markers both Google and AI engines weigh.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The structured data</h2>
+    <div class="schema-types">
+      <span><em>◆</em>Article</span><span><em>◆</em>HowTo</span><span><em>◆</em>FAQPage</span><span><em>◆</em>BreadcrumbList</span>
+    </div>
+    <p class="code-cap">Sample — FAQPage JSON-LD (trimmed)</p>
+    <pre>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a USDOT number and an MC number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A USDOT number is your federal safety identifier. An MC
+                 number is your operating authority to haul regulated
+                 freight for hire across state lines..."
+      }
+    }
+  ]
+}</pre>
+    <div class="note"><b>Why this still matters when rich snippets don't show</b>Google now restricts FAQ and HowTo rich results to authoritative sites, so a rich-results test won't always display them. But the markup still does its real job here — it hands ChatGPT, Perplexity and Gemini a clean, labeled version of the content to read and cite. That's the point of GEO.</div>
+  </section>
+
+  <section>
+    <h2>The proof</h2>
+    <p class="sub">Two checks anyone can reproduce: the schema validates with zero errors, and an AI engine can pull the answer straight from the page.</p>
+
+    <div class="shot">
+      <div class="ic">✓</div>
+      <b>Schema validation — 4 types, 0 errors</b>
+      <p>Replace this box with your screenshot from <code>validator.schema.org</code> showing Article, HowTo, FAQPage and BreadcrumbList detected. Save it as <code>validator-result.png</code> and swap in an <code>&lt;img&gt;</code>.</p>
+    </div>
+
+    <div class="shot">
+      <div class="ic">◎</div>
+      <b>AI extraction — the page answers the query</b>
+      <p>Replace with a screenshot of Perplexity or ChatGPT answering "how do I start a trucking company and get MC authority" using the page's content. Save as <code>ai-extraction.png</code>.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>The same approach, applied to your site</h2>
+    <p>This is a demonstration on a trucking topic — the exact playbook maps to any B2B site. Here's what a scoped engagement looks like:</p>
+    <div class="row">
+      <div class="item"><span class="n">01</span><b>Entity &amp; keyword map</b><span>The topics and named entities your niche is built on.</span></div>
+      <div class="item"><span class="n">02</span><b>Schema plan</b><span>Which structured-data types each page type should carry.</span></div>
+      <div class="item"><span class="n">03</span><b>AI-visibility baseline</b><span>Where you currently stand across the four engines today.</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fdemo">◆ Portfolio demonstration</div>
+    <p>This case study presents sample GEO/AEO builds created to demonstrate technical SEO and answer-engine optimization. The "Freightline Compliance Guides" brand in the demo pages is fictional and not a real business. Regulatory details are illustrative and current as of 2026.</p>
+  </div>
+</footer>
+
+</body>
+</html>

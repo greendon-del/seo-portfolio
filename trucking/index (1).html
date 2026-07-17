@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO · GEO · AEO — Proof, Method & a Demo on Your Niche</title>
+<meta name="description" content="Real client Search Console data, how AI search visibility is measured, and a working GEO/AEO build on a trucking-company topic — everything in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16232E; --ink-soft:#33454F; --steel:#6A7B87;
+    --paper:#F5F7F9; --card:#FFFFFF; --line:#DBE3E8; --line-strong:#C3CFD6;
+    --amber:#E4780B; --amber-deep:#B85E06; --amber-soft:#FBEBD6;
+    --green:#2E7D5B; --green-soft:#E3F1EA;
+    --shadow:0 1px 2px rgba(22,35,46,.06), 0 14px 34px rgba(22,35,46,.07);
+    --display:'Barlow Condensed','Arial Narrow',sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+  a{color:var(--amber-deep);text-decoration:none}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:3px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  header.site{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:.02em;color:var(--ink)}
+  .brand .mark{width:30px;height:30px;border-radius:6px;background:var(--ink);display:grid;place-items:center;color:var(--amber);font-size:.95rem;flex:none}
+  .brand small{display:block;font-family:var(--body);font-weight:500;font-size:.58rem;letter-spacing:.16em;color:var(--steel);text-transform:uppercase;margin-top:-3px}
+  nav.links{display:flex;gap:20px;font-family:var(--display);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.8rem}
+  nav.links a{color:var(--ink-soft)}nav.links a:hover{color:var(--amber-deep)}
+  @media(max-width:680px){nav.links{display:none}}
+
+  .hero{padding:52px 0 34px}
+  .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-deep);font-size:.82rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber)}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,6vw,3.5rem);line-height:1.02;letter-spacing:.005em;margin-bottom:16px;max-width:17ch}
+  .hero .dek{font-size:1.16rem;color:var(--ink-soft);max-width:64ch}
+  .answered{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .answered a{font-family:var(--display);font-weight:600;letter-spacing:.04em;font-size:.86rem;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:7px 15px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px}
+  .answered a::before{content:"→";color:var(--amber)}
+  .answered a:hover{border-color:var(--amber);color:var(--ink)}
+
+  section{margin:52px 0;scroll-margin-top:74px}
+  .stag{font-family:var(--display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;color:var(--amber-deep);margin-bottom:6px}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(1.75rem,4vw,2.3rem);line-height:1.08;margin:0 0 8px;letter-spacing:.008em}
+  .sub{color:var(--steel);font-size:1.04rem;margin-bottom:22px;max-width:64ch}
+  p{margin:12px 0}
+
+  /* demo feature */
+  .feature{background:var(--ink);color:#EAF0F3;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .feature .fbody{padding:32px 34px}
+  .feature .stag{color:var(--amber)}
+  .feature h3{font-family:var(--display);font-weight:700;font-size:1.7rem;color:#fff;letter-spacing:.01em;margin-bottom:8px}
+  .feature p{color:#B8C6CF;max-width:60ch}
+  .feature ul{list-style:none;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+  .feature li{position:relative;padding-left:24px;font-size:.94rem;color:#D3DDE3}
+  .feature li::before{content:"✓";position:absolute;left:0;color:var(--amber);font-family:var(--display);font-weight:700}
+  .feature .frow{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .btn{font-family:var(--display);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.82rem;padding:11px 20px;border-radius:8px;display:inline-block}
+  .btn.p{background:var(--amber);color:#fff}
+  .btn.s{border:1px solid rgba(255,255,255,.28);color:#EAF0F3}
+  @media(max-width:560px){.feature ul{grid-template-columns:1fr}}
+
+  /* method */
+  .method{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--amber)}
+  .mc h3{font-family:var(--display);font-weight:700;font-size:1.22rem;letter-spacing:.01em;margin-bottom:5px}
+  .mc p{font-size:.93rem;margin:0;color:var(--ink-soft)}
+  @media(max-width:560px){.method{grid-template-columns:1fr}}
+  .method-note{background:var(--amber-soft);border-radius:11px;padding:15px 20px;margin-top:16px;font-size:.94rem;color:var(--ink-soft)}
+  .method-note b{color:var(--amber-deep);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:3px}
+
+  /* client cards */
+  .clients{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .cl .h{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+  .cl .h b{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.01em;display:block}
+  .cl .h span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--steel);font-weight:600}
+  .cl .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .cl .m{background:var(--card);padding:12px 14px}
+  .cl .m b{font-family:var(--display);font-weight:700;font-size:1.45rem;line-height:1;color:var(--ink);display:block}
+  .cl .m span{font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--steel);font-weight:600}
+  .cl .note{padding:12px 16px;font-size:.83rem;color:var(--ink-soft);background:var(--paper)}
+  @media(max-width:760px){.clients{grid-template-columns:1fr}}
+  .compare-slot{border:2px dashed var(--line-strong);border-radius:12px;padding:22px;text-align:center;margin-top:16px;background:var(--card)}
+  .compare-slot b{font-family:var(--display);font-weight:600;font-size:1.05rem;display:block;margin-bottom:3px}
+  .compare-slot p{font-size:.86rem;color:var(--steel);max-width:52ch;margin:0 auto}
+
+  /* reviews */
+  .rev{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .rev .stars{font-size:1.4rem;color:var(--amber);letter-spacing:2px}
+  .rev .txt{flex:1;min-width:220px}
+  .rev .txt b{font-family:var(--display);font-size:1.2rem;letter-spacing:.01em}
+  .rev .txt p{font-size:.92rem;color:var(--ink-soft);margin:4px 0 0}
+
+  /* cta */
+  .cta{background:var(--ink);color:#EAF0F3;border-radius:16px;padding:34px 32px;text-align:center;box-shadow:var(--shadow)}
+  .cta h2{color:#fff}
+  .cta p{color:#B8C6CF;max-width:56ch;margin:10px auto 0}
+  .cta .btn{margin-top:22px}
+
+  footer{background:var(--ink);color:#8FA1AB;padding:32px 0;margin-top:52px;border-top:1px solid #24404f}
+  footer .fbrand{font-family:var(--display);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;color:#fff;margin-bottom:8px}
+  footer p{font-size:.82rem;margin:5px 0}
+
+  @media(prefers-reduced-motion:no-preference){
+    .hero>*{animation:rise .5s ease both}
+    .hero h1{animation-delay:.05s}.hero .dek{animation-delay:.1s}.hero .answered{animation-delay:.16s}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#demo">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><span class="mark">◆</span><span>GEO / AEO Portfolio<small>Technical SEO · Answer-Engine Optimization</small></span></div>
+      <nav class="links" aria-label="Primary">
+        <a href="#demo">Demo</a><a href="#method">AI Visibility</a><a href="#data">Client Data</a><a href="#reviews">Reviews</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Prepared for your review</div>
+    <h1>The proof, the method, and a demo on your niche</h1>
+    <p class="dek">Everything you asked about, in one place: a working GEO/AEO build on a trucking-company topic, exactly how I measure AI search visibility, live client Search Console data, and verified reviews.</p>
+    <div class="answered">
+      <a href="#demo">Example builds</a>
+      <a href="#method">AI-visibility method</a>
+      <a href="#data">Real client data</a>
+      <a href="#reviews">Testimonials</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- DEMO: headline proof, on her niche -->
+  <section id="demo">
+    <div class="stag">01 · On your exact niche</div>
+    <h2>A working GEO/AEO build for a trucking-company site</h2>
+    <p class="sub">Rather than a case study from an unrelated industry, I built the real thing on your subject — a trucking-company / LLC-registration page, engineered the way AI search engines want to read it.</p>
+    <div class="feature">
+      <div class="fbody">
+        <div class="stag">Live demonstration</div>
+        <h3>Trucking Company Formation — GEO/AEO build</h3>
+        <p>Two live pages on the same topic: a thin "before" version and a fully optimized build. The difference is measurable — four structured-data types versus none.</p>
+        <ul>
+          <li>Answer-first block for AI extraction</li>
+          <li>Article, HowTo, FAQPage, Breadcrumb schema</li>
+          <li>Question-shaped headings that match search</li>
+          <li>Full entity coverage (FMCSA, USDOT, MC, BOC-3…)</li>
+          <li>Validates with zero errors</li>
+          <li>E-E-A-T signals throughout</li>
+        </ul>
+        <div class="frow">
+          <a class="btn p" href="trucking-geo-case-study.html">See the full case study →</a>
+          <a class="btn s" href="trucking-llc-guide-after.html">Open the live build</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD: her key question -->
+  <section id="method">
+    <div class="stag">02 · Your key question</div>
+    <h2>How I measure AI search visibility</h2>
+    <p class="sub">Straight answer: it's part direct testing, part analytics — because this space is still maturing. Here's the actual workflow.</p>
+    <div class="method">
+      <div class="mc"><h3>Direct engine testing</h3><p>I build the real questions your buyers ask and run them across ChatGPT, Perplexity, Gemini and Claude, then check whether the site is cited or the brand mentioned. Perplexity and ChatGPT search expose their sources, so it's verifiable.</p></div>
+      <div class="mc"><h3>AI referral tracking</h3><p>In GA4, traffic from chatgpt.com, perplexity.ai and similar now appears as its own source — so referral sessions from AI engines can be tracked directly over time.</p></div>
+      <div class="mc"><h3>Structured-data validation</h3><p>I validate schema (validator.schema.org, Rich Results Test) as a leading indicator that the engines can parse the page cleanly and pull the right answer.</p></div>
+      <div class="mc"><h3>Share-of-voice trackers</h3><p>For ongoing reporting I can layer in dedicated AI-visibility tools (Profound, Otterly) that monitor how often a brand surfaces across the models.</p></div>
+    </div>
+    <div class="method-note"><b>The nuance most people miss</b>Google now restricts FAQ and HowTo rich snippets to authoritative sites, so a rich-results test won't always light them up. But the structured data still does its real job — it hands the AI engines a clean, labeled version of the page to read and cite. That's the whole point of GEO.</div>
+  </section>
+
+  <!-- CLIENT DATA: examples + GSC -->
+  <section id="data">
+    <div class="stag">03 · Live client data</div>
+    <h2>Real Search Console footprints</h2>
+    <p class="sub">Unedited Google Search Console data from client properties I manage. Domains anonymized; raw screenshots available on request.</p>
+    <div class="clients">
+      <div class="cl">
+        <div class="h"><b>Consumer-tech reviews</b><span>India · 3-month window</span></div>
+        <div class="grid2">
+          <div class="m"><b>63.3K</b><span>Impressions</span></div>
+          <div class="m"><b>293</b><span>Clicks</span></div>
+          <div class="m"><b>1,000+</b><span>Queries</span></div>
+          <div class="m"><b>24.2</b><span>Avg. pos.</span></div>
+        </div>
+        <div class="note">1,000+ long-tail review queries indexed; impressions climbing in recent weeks.</div>
+      </div>
+      <div class="cl">
+        <div class="h"><b>Content site B</b><span>28-day window</span></div>
+        <div class="grid2">
+          <div class="m"><b>9.42K</b><span>Impressions</span></div>
+          <div class="m"><b>113</b><span>Clicks</span></div>
+          <div class="m"><b>1.2%</b><span>CTR</span></div>
+          <div class="m"><b>17.4</b><span>Avg. pos.</span></div>
+        </div>
+        <div class="note">Impressions inflecting upward — a single recent day reached 1,920 impressions and 18 clicks.</div>
+      </div>
+      <div class="cl">
+        <div class="h"><b>Content site C</b><span>28-day window</span></div>
+        <div class="grid2">
+          <div class="m"><b>6.98K</b><span>Impressions</span></div>
+          <div class="m"><b>21</b><span>Clicks</span></div>
+          <div class="m"><b>0.3%</b><span>CTR</span></div>
+          <div class="m"><b>10.9</b><span>Avg. pos.</span></div>
+        </div>
+        <div class="note">Strongest average position of the three (page 1–2); footprint still converting into clicks.</div>
+      </div>
+    </div>
+    <div class="compare-slot">
+      <b>Period-over-period before/after — available on request</b>
+      <p>A Search Console Compare view (this period vs. the previous one) showing the impressions and clicks delta from the engagement can be shared for any of these properties.</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="stag">04 · Testimonials</div>
+    <h2>Verified client reviews</h2>
+    <p class="sub">Every review on my Fiverr profile is platform-verified — Fiverr confirms each came from a real completed order, so they can't be fabricated.</p>
+    <div class="rev">
+      <div class="stars">★★★★★</div>
+      <div class="txt">
+        <b>Reviews you can verify</b>
+        <p>See the full set of verified reviews on my Fiverr profile — and I'm glad to connect you with a past client for a direct reference on request.</p>
+      </div>
+      <a class="btn p" href="#" style="color:#fff">View Fiverr profile →</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>The most useful next step</h2>
+    <p>A short mini-audit of your trucking-LLC project: an entity and keyword map for the niche, a schema plan, and an AI-visibility baseline showing where the site stands across all four engines today — so you can judge the thinking on your actual project.</p>
+    <a class="btn p" href="#">Let's scope it →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">◆ GEO / AEO Portfolio</div>
+    <p>The trucking pages are demonstration builds; the "Freightline Compliance Guides" brand in them is fictional and not a real business. Client metrics are unedited Google Search Console data from live properties, with domains anonymized pending client sign-off.</p>
+  </div>
+</footer>
+
+</body>
+</html>
